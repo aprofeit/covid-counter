@@ -6,6 +6,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       get '/drinks/something'
     end
 
+    assert User.last.username == 'something'
     assert_response 200
   end
 
