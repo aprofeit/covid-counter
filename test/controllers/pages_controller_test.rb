@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class PagesControllerTest < ActionDispatch::IntegrationTest
-  test "should get home" do
+  test "getting the homepage" do
     get '/'
 
-    assert_response :success
+    assert_response 200
   end
 end
