@@ -5,5 +5,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_difference 'User.count' do
       get '/drinks/something'
     end
+
+    assert_response 200
+  end
+
+  test "should not a user if they exist" do
+    assert_no_difference 'User.count' do
+      get '/drinks/aprofeit'
+    end
+
+    assert_response 200
   end
 end
