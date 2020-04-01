@@ -1,0 +1,22 @@
+<div class="row mb-3 mt-3">
+  <h1>Whatcha been drinking?</h1>
+</div>
+
+<div class-"row">
+  <%= form_with(url: "/drink_consumptions", scope: "drink_consumptions", method: :post) do %>
+    <div class="form-group row">
+      <%= label_tag 'date', 'Date', class: "col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-10 col-form-label" %>
+      <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+        <%= date_field_tag 'date', Date.today.iso8601, class: 'form-control' %>
+      </div>
+    </div>
+    <% @drinks.each do |drink| %>
+      <div class="form-group row">
+        <%= label_tag drink.id, drink.name, class: "col-xs-7 col-sm-8 col-md-9 col-lg-10 col-xl-10 col-form-label" %>
+        <div class="col-xs-5 col-sm-4 col-md-3 col-lg-2 col-xl-2">
+          <%= number_field_tag drink.id, 0, class: 'form-control', min: 0 %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<div>
